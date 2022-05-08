@@ -30,10 +30,10 @@ public class MainActivity extends AppCompatActivity {
             });
     }
     public userclass initial()
-        {
+    {
         userclass initialization = new userclass("name","description",0,false);
         return initialization;
-        };
+    };
 
     public void followstatus (userclass userclass, Button button2)
         {

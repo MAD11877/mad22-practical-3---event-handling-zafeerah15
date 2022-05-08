@@ -19,31 +19,41 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         ImageView imageButton = findViewById(R.id.imageView2);
-        imageButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                if (user1.click == false) {
+        userclass user1 = initial();
+        if (!isFinishing()){
+            new AlertDialog.Builder(ListActivity.this)
+                    .setTitle("Profile")
+                    .setMessage("MADness")
+                    .setCancelable(false)
+                    .setPositiveButton("view", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if (user1.followed == false) {
+                                user1.followed = true;
+                            } else {
+                                user1.followed = false;
+                            }
+                            Dialogue(user1,imageButton);
 
-                    }
-                }
-                    user1.followed = true;
-                else {
-                    user1.followed = false;
-                }
-                followstatus(, imageButton);
-            };
-    /*public void followstatus(userclass userclass, ImageView imageButton)
-    {
-        ImageView imageView = findViewById(R.id.imageView2);
-        if(userclass.followed == false)
-        {
-            imageButton
+                        }
+
+
+                    }).show();
         }
-        else
-        {
-
-        }
-    };
-
     }
 
+    public userclass initial() {
+        userclass initialization = new userclass("name", "description", 0, false);
+        return initialization;
+    };
+    public void Dialogue(userclass user,ImageButton imageButton){
+        ImageButton dialog = findViewById(R.id.imageButton);
+    };
+
+
+
+
+    ;
+
+}
+imageButton.setOnClickListener(new View.OnClickListener() {};
