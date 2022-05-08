@@ -3,6 +3,7 @@ package sg.edu.np.edu.mad.s10205175_week2practical;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
@@ -33,7 +34,7 @@ public class ListActivity extends AppCompatActivity {
                             } else {
                                 user1.followed = false;
                             }
-                            Dialogue(user1,imageButton);
+                            Dialogue(user1,imaeButton);
 
                         }
 
@@ -46,14 +47,20 @@ public class ListActivity extends AppCompatActivity {
         userclass initialization = new userclass("name", "description", 0, false);
         return initialization;
     };
-    public void Dialogue(userclass user,ImageButton imageButton){
-        ImageButton dialog = findViewById(R.id.imageButton);
+    public void Dialogue(userclass user,ImageView dialogue){
+        ImageView dialog = findViewById(R.id.imageView2);
+        TextView txt = findViewById(R.id.textView);
+        if(user.followed == false)
+        {
+                txt.setText("HELLO WORLD!");
+        }
+        else
+        {
+            txt.setText("MAD 1739039545");
+            Dialog.
+        }
+
     };
-
-
-
-
     ;
-
 }
-imageButton.setOnClickListener(new View.OnClickListener() {};
+//imageButton.setOnClickListener(new View.OnClickListener() {};
