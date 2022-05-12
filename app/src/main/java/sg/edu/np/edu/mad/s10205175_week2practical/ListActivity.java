@@ -56,6 +56,7 @@ public class ListActivity extends AppCompatActivity {
                 thisactivity.putExtra("ranINT", ranINT);
                 startActivity(thisactivity);
             }
+
         });
 
         AlertDialog alert = builder.create();
