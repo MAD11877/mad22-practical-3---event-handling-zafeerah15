@@ -23,21 +23,17 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         ImageView imageButton = findViewById(R.id.imageView3);
-        userclass user1 = initial();
+
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog dialog = alert();
+                dialog.show();
             }
         });
     }
 
-    public userclass initial() {
-        userclass initialization = new userclass("name", "description", 0, false);
-        return initialization;
-    }
 
-    ;
 
     public AlertDialog alert() {
         AlertDialog.Builder builder = new AlertDialog.Builder(ListActivity.this);
@@ -56,9 +52,9 @@ public class ListActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 Random rand = new Random();
                 Integer ranINT = Math.abs(rand.nextInt());
-                Intent ListActivity = new Intent(ListActivity.this, MainActivity.class);
-                ListActivity.putExtra("ranINT", ranINT);
-                startActivity(ListActivity);
+                Intent thisactivity = new Intent(ListActivity.this, MainActivity.class);
+                thisactivity.putExtra("ranINT", ranINT);
+                startActivity(thisactivity);
             }
         });
 
