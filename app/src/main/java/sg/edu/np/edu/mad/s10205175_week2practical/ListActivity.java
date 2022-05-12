@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+
+import java.util.Random;
 
 
 public class ListActivity extends AppCompatActivity {
@@ -19,48 +22,49 @@ public class ListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
-        ImageView imageButton = findViewById(R.id.imageView2);
+        ImageView imageButton = findViewById(R.id.imageView3);
         userclass user1 = initial();
-        if (!isFinishing()){
-            new AlertDialog.Builder(ListActivity.this)
-                    .setTitle("Profile")
-                    .setMessage("MADness")
-                    .setCancelable(false)
-                    .setPositiveButton("view", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            if (user1.followed == false) {
-                                user1.followed = true;
-                            } else {
-                                user1.followed = false;
-                            }
-                            Dialogue(user1,imaeButton);
-
-                        }
-
-
-                    }).show();
-        }
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog dialog = alert();
+            }
+        });
     }
 
     public userclass initial() {
         userclass initialization = new userclass("name", "description", 0, false);
         return initialization;
-    };
-    public void Dialogue(userclass user,ImageView dialogue){
-        ImageView dialog = findViewById(R.id.imageView2);
-        TextView txt = findViewById(R.id.textView);
-        if(user.followed == false)
-        {
-                txt.setText("HELLO WORLD!");
-        }
-        else
-        {
-            txt.setText("MAD 1739039545");
-            Dialog.
-        }
+    }
 
-    };
+    ;
+
+    public AlertDialog alert() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ListActivity.this);
+
+        builder.setTitle("Profile");
+        builder.setMessage("MADness");
+        builder.setCancelable(true);
+        builder.setNegativeButton("CLOSE", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.setPositiveButton("VIEW", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Random rand = new Random();
+                Integer ranINT = Math.abs(rand.nextInt());
+                Intent ListActivity = new Intent(ListActivity.this, MainActivity.class);
+                ListActivity.putExtra("ranINT", ranINT);
+                startActivity(ListActivity);
+            }
+        });
+
+        AlertDialog alert = builder.create();
+        return alert;
+    }
+
     ;
 }
-//imageButton.setOnClickListener(new View.OnClickListener() {};

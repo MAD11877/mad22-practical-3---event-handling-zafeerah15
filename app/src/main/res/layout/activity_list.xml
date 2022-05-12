@@ -32,16 +32,4 @@
         app:srcCompat="@drawable/ic_launcher_foreground"
         tools:ignore="ImageContrastCheck" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="297dp"
-        android:layout_height="140dp"
-        android:layout_marginTop="295dp"
-        android:layout_marginEnd="57dp"
-        android:contentDescription="@alertdialog"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/screen_background_light"
-        tools:ignore="ImageContrastCheck" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
