@@ -1,6 +1,7 @@
 package sg.edu.np.edu.mad.s10205175_week2practical;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -62,6 +63,16 @@ public class ListActivity extends AppCompatActivity {
         AlertDialog alert = builder.create();
         return alert;
     }
+    RecyclerView recyclerView = findViewById(R.id.recyclerView);
+    Bran mAdapter =
+            new BrandsAdapter(brandList);
+
+    LinearLayoutManager mLayoutManager =
+            new LinearLayoutManager(this);
+
+recyclerView.setLayoutManager(mLayoutManager);
+recyclerView.setItemAnimator(new DefaultItemAnimator());
+recyclerView.setAdapter(mAdapter);
 
     ;
 }
