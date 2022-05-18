@@ -2,6 +2,7 @@ package sg.edu.np.edu.mad.s10205175_week2practical;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         Button followbutton = findViewById(R.id.button2);
         userclass user1 = initial();
         followstatus(user1, followbutton);
+        Button messaging = findViewById(R.id.button3);
         followbutton.setOnClickListener(new View.OnClickListener(){
     @Override
     public void onClick(View view) {
@@ -28,12 +30,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
             });
-    }
+
+       messaging.setOnClickListener(new View.OnClickListener(){
+        @Override
+        public void onClick(View view) {
+            Intent NewAct = new Intent(MainActivity.this, MessageGroup.class);
+            startActivity(NewAct);
+        }
+    });
+
+    };
+
     public userclass initial()
     {
         userclass initialization = new userclass("name","description",0,false);
         return initialization;
-    };
+    }
 
     public void followstatus (userclass userclass, Button button2)
         {
@@ -47,6 +59,14 @@ public class MainActivity extends AppCompatActivity {
         txt.setText("Unfollow");
         }
         };
+    public void message (userclass userclass, Button button3)
+    {
+        TextView txt = findViewById(R.id.button3);
+
+    };
+
+
+
 };
 
 
