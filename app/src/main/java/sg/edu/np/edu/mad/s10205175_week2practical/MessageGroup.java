@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
+
 import androidx.fragment.app.FragmentTransaction;
 
 public class MessageGroup extends AppCompatActivity {
@@ -17,16 +17,25 @@ public class MessageGroup extends AppCompatActivity {
         Button grp1button , grp2button;
         grp1button = findViewById(R.id.grp1button);
         grp2button = findViewById(R.id.grp2button);
+
+
         grp1button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragments(new groupFragment());
+                repFragments(new groupFragment());
+            }
+        });
+
+        grp2button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                repFragments(new group1Fragment());
             }
         });
     }
-    public void Fragments(Fragment frag){
+    public void repFragments(groupFragment frag){
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.textView2,frag);
+        ft.replace(R.id.frame,frag);
         ft.commit();
     }
 }
